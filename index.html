@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Landing Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {}
+
+
+        .dropdown-item:hover {
+            background-color: #0d6efd;
+            color: #fff;
+        }
+
+        .dropdown-menu {
+            width: 675px;
+            /* Desktop mega menu width */
+            padding: 20px;
+        }
+
+        .mega-menu-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .nev-ileft {
+            border: 2px solid black;
+            padding: 6px 18px;
+            font-weight: 500;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+
+        /* Hero Section */
+
+
+        .carousel-item {
+            position: relative;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4vw;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            white-space: nowrap;
+        }
+
+        /* 🔹 Scrolling top line */
+        .scroll-text {
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            background: #f9f9f9;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .scroll-text span {
+            display: inline-block;
+            padding-left: 100%;
+            /* starting point */
+            animation: scroll-left 25s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* 🔹 Circle container */
+        .circle-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+        }
+
+        /* Circle rotating text */
+        .circle-svg {
+            width: 100%;
+            height: 100%;
+            animation: rotate-circle 15s linear infinite;
+        }
+
+        .circle-text {
+            font-size: 16px;
+            fill: #333;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        @keyframes rotate-circle {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Center number */
+        .center-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            font-weight: bold;
+            color: red;
+        }
+
+        /* About Section */
+        .about-section h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .about-section h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .about-section p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+
+        /* Section Spacing */
+        section {
+            padding: 60px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        /* 🔹 Stats Section */
+        .stats {
+            max-width: 800px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 18px;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: bold;
+            color: red;
+            margin-right: 15px;
+            min-width: 80px;
+        }
+
+        .stat-label {
+            font-weight: 500;
+            color: #444;
+        }
+
+
+
+
+
+        /* slider-phot0 */
+
+        .slider-container {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            width: 100%;
+            height: 350px;
+            align-items: center;
+        }
+
+        .slider-container img {
+            min-width: 427px;
+            height: 100%;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+
+
+        .products-section {
+            padding: 60px 0;
+        }
+
+        .products-heading {
+            font-size: 29px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .products-title {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .truck-img {
+            max-width: 100%;
+        }
+
+
+        .station-img {
+            max-width: 100%;
+            max-height: 270px;
+        }
+
+        /* silder-2--- */
+
+        .slider-wrapper2 {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-container2 {
+            display: flex;
+            gap: 10px;
+            transition: transform 0.5s linear;
+        }
+
+        .slider-container2 img {
+            height: 250px;
+            /* apne hisaab se change kar lo */
+            width: 327px;
+            border-radius: 10px;
+        }
+
+
+        /* new-form */
+
+        .contact-section {
+            padding: 60px 0;
+        }
+
+        .contact-left h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .contact-left p a {
+            color: #d9534f;
+            text-decoration: none;
+        }
+
+        .contact-left p a:hover {
+            text-decoration: underline;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+        }
+
+        .btn-submit {
+            background-color: #d9534f;
+            color: #fff;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 991px) {
+
+            .dropdown-menu {
+                width: 100% !important;
+                padding: 10px 0;
+            }
+
+            .dropdown-menu .row {
+                display: block;
+            }
+
+            .dropdown-menu .col-md-6 {
+                width: 100% !important;
+                padding: 0.5rem 1rem;
+            }
+
+            .watermark {
+                font-size: 5vw;
+                bottom: 5%;
+            }
+
+            .stats {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .station-img {
+                width: 90%;
+                padding-top: 40px;
+            }
+
+            .slider-container2 img {
+                width: 300px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a href="#"><img width="111" height="90" src="logo1.jpg.png" class="attachment-full size-full" alt=""
+                        decoding="async" srcset="" sizes="(max-width: 67px) 100vw, 67px"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-3 px-3 my-lg-0 navbar-nav-scroll"
+                        style="--bs-scroll-height: 100px;">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="productsSolutions" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Products & Solutions
+                            </a>
+                            <div class="dropdown-menu p-3" aria-labelledby="productsSolutions">
+                                <div class="row">
+                                    <!-- Products Column -->
+                                    <div class="col-md-6">
+                                        <div class="mega-menu-title">Products</div>
+                                        <a class="dropdown-item" href="#">Steel Weighbridge</a>
+                                        <a class="dropdown-item" href="#">Concrete Weighbridge</a>
+                                        <a class="dropdown-item" href="#">Tuff Track Weighbridge</a>
+                                        <a class="dropdown-item" href="#">Weigh Pads</a>
+                                        <a class="dropdown-item" href="#">Flexi Weighbridge</a>
+                                        <a class="dropdown-item" href="#">Rail Weigh in Motion</a>
+                                        <a class="dropdown-item" href="#">Truck Weigh in Motion</a>
+                                        <a class="dropdown-item" href="#">Digital Weighbridge</a>
+                                        <a class="dropdown-item text-primary fw-bold" href="#">View all Products</a>
+                                    </div>
+
+                                    <!-- Solutions Column -->
+                                    <div class="col-md-6">
+                                        <div class="mega-menu-title">Solutions</div>
+                                        <a class="dropdown-item" href="#">Automatic Weighing Solution</a>
+                                        <a class="dropdown-item" href="#">Crusher Production Management System</a>
+                                        <a class="dropdown-item" href="#">Intelligent Weighing Terminal</a>
+                                        <a class="dropdown-item" href="#">Silo Weighing Solutions</a>
+                                        <a class="dropdown-item" href="#">Granite Weighing Solutions</a>
+                                        <a class="dropdown-item" href="#">Wheel Loader Weighing Solutions</a>
+                                        <a class="dropdown-item" href="#">AccuTrol</a>
+                                        <a class="dropdown-item text-primary fw-bold" href="#">View all Solutions</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="segmentsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Segments
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="segmentsDropdown">
+                                <li><a class="dropdown-item" href="#">Agriculture & Engineering</a></li>
+                                <li><a class="dropdown-item" href="#">Construction, Infrastructure, Toll</a></li>
+                                <li><a class="dropdown-item" href="#">Ready Mix Concrete & Building Materials</a></li>
+                                <li><a class="dropdown-item" href="#">Steel, Mines, Cement & Logistics</a></li>
+                                <li><a class="dropdown-item" href="#">Grain Storage Solution (SILOS)</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Company</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+
+                    <!-- side button -->
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="#" class="btn btn-outline-dark mx-2">+919919278568</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn btn-outline-danger mx-2">Send Enquiry</a>
+                        </li>
+                    </ul>
+                    <!-- end side button -->
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+
+
+    <section id="home" class="hero">
+        <div class="container">
+
+
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    <!-- 1st Image -->
+                    <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="p1.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                    <!-- 2nd Image -->
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="p2.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                    <!-- 3rd Image -->
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="p4.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                    <!-- 4th -->
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="p5.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                    <!-- 5th -->
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="p6.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                    <!-- 6th -->
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="p8.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                    <!-- 7th -->
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="p9.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                    <!-- 8th -->
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="p40.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                    <!-- 9th -->
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="p45.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                    <!-- 10th -->
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="p47.jpg" class="d-block w-100" alt="...">
+                        <div class="watermark">Welcome To Weighbridgeindia Page</div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <!-- 🔹 Scrolling Line -->
+    <div class="scroll-text">
+        <span>
+
+            An ISO ISO 9001:2015 Certified Company
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            WEIGHT &amp; MEASURE AND RDSO APPROVED
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            12,000+ Satisfied Customers Across India and Worldwide
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            17,000+ Installations Across India and Around the Globe
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            82 Locations
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            11 Branch Offices
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            115+ Experienced Engineers
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            An ISO 9001:2015 Certified Company
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            WEIGHT &amp; MEASURE AND RDSO APPROVED
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            12,000+ Satisfied Customers Across India and Worldwide
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            17,000+ Installations Across India and Around the Globe
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            82 Locations
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            11 Branch Offices
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            115+ Experienced Engineers
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>
+    </div>
+
+    <!-- 🔹 Main Section with Bootstrap -->
+    <div class="container my-5">
+        <div class="row align-items-center">
+
+            <!-- Left: Circle Animation -->
+            <div class="col-md-6 text-center mb-4 mb-md-0">
+                <div class="circle-container">
+                    <svg viewBox="0 0 300 300" class="circle-svg">
+                        <defs>
+                            <path id="circlePath"
+                                d="M 150, 150 m -120, 0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0" />
+                        </defs>
+                        <text class="circle-text">
+                            <textPath xlink:href="#circlePath">
+                                * A 25 years of quality and reliability * A 25 years of quality and reliability
+                            </textPath>
+                        </text>
+                    </svg>
+                    <div class="center-number">25</div>
+                </div>
+            </div>
+
+            <!-- Right: About Section -->
+            <div class="col-md-6 about-section">
+                <h2>About Us</h2>
+                <h3>Protecting Your Profits...<br>Since 1996</h3>
+                <p>
+                    Weighbridge India Pvt. Ltd, an ISO 9001:2015 certified company, comprises of
+                    FIVE divisions with three manufacturing facilities. Our business focus
+                    includes manufacturing and marketing of Truck Scales, Dynamic/In Motion
+                    Weighbridge Products, Weighing Solutions, Machined Components, Speedo Hub
+                    Drive for Automotive Sector.
+                </p>
+            </div>
+
+            <!-- 🔹 Stats Section -->
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Years of Service</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">115+</div>
+                    <div class="stat-label">Experienced Engineers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">11+</div>
+                    <div class="stat-label">Branch Offices</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">82</div>
+                    <div class="stat-label">Locations</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 🔹 Video Section -->
+
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-12">
+                <div class="ratio ratio-16x9">
+                    <video id="myVideo" muted playsinline>
+                        <source src="p18.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Side: Text -->
+                <div class="col-md-7">
+                    <div class="products-heading">Products</div>
+                    <h2 class="products-title">
+                        Weighbridge India Enhancing <br> productivity through accuracy.
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- slide-photo -->
+
+
+
+    <div class="container mt-5">
+        <div id="imageSlider" class="slider-container">
+            <img src="p23.jpg" alt="1">
+            <img src="p3.jpg" alt="2">
+            <img src="p7.jpg" alt="3">
+            <img src="p10.jpg" alt="4">
+            <img src="p12.jpg" alt="5">
+            <img src="p16.jpg" alt="6">
+            <img src="p20.jpg" alt="7">
+            <img src="p21.jpg" alt="8">
+            <img src="p22.jpg" alt="9">
+            <img src="p26.jpg" alt="10">
+            <img src="p25.jpg" alt="11">
+            <img src="p32.jpg" alt="12">
+            <img src="p52.jpg" alt="1">
+            <img src="p53.jpg" alt="2">
+            <img src="p54.jpg" alt="3">
+            <img src="p55.jpg" alt="4">
+            <img src="p56.jpg" alt="5">
+            <img src="p57.jpg.png" alt="6">
+            <img src="p15.jpg" alt="7">
+            <img src="p14.jpg" alt="8">
+            <img src="p11.jpg" alt="9">
+            <img src="p18.jpg" alt="10">
+            <img src="p19.jpg" alt="11">
+            <img src="p20.jpg" alt="12">
+        </div>
+    </div>
+
+
+
+    <!-- product-section -->
+
+    <section class="products-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Side: Text -->
+                <div class="col-md-6">
+                    <div class="products-heading">Weighing solutions</div>
+                    <h2 class="products-title">
+                        Essae Digitronics' Weighbridges<br>
+                        that avoids overloading and pilferage.
+                    </h2>
+                </div>
+
+                <!-- Right Side: Truck Image -->
+                <div class="col-md-6 text-center">
+                    <img src="new.jpg.png" alt="Truck Image" class="station-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- slider-2 -->
+
+    <div class="container2 mt-5">
+        <div class="slider-wrapper2">
+            <div id="imageSlider2" class="slider-container2">
+                <img src="p26.jpg" alt="1">
+                <img src="p27.jpg" alt="2">
+                <img src="p29.jpg" alt="4">
+                <img src="p30.jpg" alt="5">
+                <img src="p31.jpg" alt="6">
+                <img src="p33.jpg" alt="7">
+                <img src="p1.jpg" alt="8">
+                <img src="p35.jpg" alt="9">
+                <img src="p37.jpg" alt="10">
+                <img src="p5.jpg" alt="11">
+                <img src="p9.jpg" alt="12">
+                <img src="p40.jpg" alt="13">
+                <img src="p41.jpg" alt="14">
+                <img src="p15.jpg" alt="15">
+                <img src="p43.jpg" alt="16">
+                <img src="p44.jpg" alt="17">
+                <img src="p45.jpg" alt="18">
+                <img src="p46.jpg" alt="19">
+                <img src="p47.jpg" alt="19">
+                <img src="p48.jpg" alt="20">
+                <img src="p49.jpg" alt="21">
+                <img src="p10.jpg" alt="22">
+                <img src="p51.jpg" alt="23">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- cdn icon --- -->
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center g-4">
+
+                <!-- Latest Technologies -->
+                <div class="col-md-3 col-6">
+                    <i class="bi bi-cpu-fill text-danger display-4"></i>
+                    <h5 class="fw-bold mt-3">Latest Technologies</h5>
+                    <p>90% of Essae installations can be reached within 3 hours.</p>
+                </div>
+
+                <!-- Best Quality -->
+                <div class="col-md-3 col-6">
+                    <i class="bi bi-award-fill text-danger display-4"></i>
+                    <h5 class="fw-bold mt-3">Best Quality</h5>
+                    <p>An ISO 9001:2015 certified company.</p>
+                </div>
+
+                <!-- World Class Service -->
+                <div class="col-md-3 col-6">
+                    <i class="bi bi-globe2 text-danger display-4"></i>
+                    <h5 class="fw-bold mt-3">World Class Service</h5>
+                    <p>Over 80 professionals across the country to enable reliable service and repairs.</p>
+                </div>
+
+                <!-- Certified Products -->
+                <div class="col-md-3 col-6">
+                    <i class="bi bi-file-earmark-check-fill text-danger display-4"></i>
+                    <h5 class="fw-bold mt-3">Certified Products</h5>
+                    <p>Has proven guidelines specifically designed for Preventive Maintenance and Repair.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="services" class="bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Web Design</h5>
+                            <p class="card-text">Responsive and modern web designs tailored for your brand.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Development</h5>
+                            <p class="card-text">Custom development solutions to meet your business goals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">SEO</h5>
+                            <p class="card-text">Boost your visibility with our SEO optimization services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container contact-section">
+        <div class="row">
+            <!-- Left Content -->
+            <div class="col-lg-6 contact-left mb-4">
+                <p class="text-uppercase text-muted">Contact Us</p>
+                <h1>Get in Touch<br>to Find the Perfect Solution</h1>
+                <p> <a href="#">Get in touch</a> with us or <a href="#">find an office</a> closest to you </p>
+            </div>
+
+            <!-- Right Form -->
+            <div class="col-lg-6">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Your Name *" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" placeholder="Email *" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Phone">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Company">
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Location">
+                    <textarea class="form-control" rows="4" placeholder="Description"></textarea>
+                    <small class="text-muted d-block mb-3">
+                        By clicking on "Submit" button you accept the Privacy Policy and Processing of personal data
+                    </small>
+                    <button type="submit" class="btn btn-submit">Send Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 MyLandingPage. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+<!-- Bootstrap JS -->
+
+<script>
+    // 🔹 Initialize all carousels safely
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        new bootstrap.Carousel(carousel, {
+            interval: 2000,
+            wrap: true
+        });
+    });
+
+    // 🔹 Stats Animation
+    const stats = document.querySelectorAll('.stat-number');
+    let statsStarted = false;
+
+    function animateStats() {
+        stats.forEach(stat => {
+            const targetText = stat.innerText; // example: "25+" or "115+"
+            const hasPlus = targetText.includes('+');
+            const target = parseInt(targetText); // number only
+            let count = 0;
+
+            const updateCount = () => {
+                const increment = Math.ceil(target / 400); // speed control
+                count += increment;
+                if (count < target) {
+                    stat.innerText = count + (hasPlus ? '+' : '');
+                    setTimeout(updateCount, 20);
+                } else {
+                    stat.innerText = target + (hasPlus ? '+' : '');
+                }
+            };
+            updateCount();
+        });
+    }
+
+    function checkScroll() {
+        if (stats.length === 0) return;
+        const triggerPoint = window.innerHeight * 0.8;
+        const statsPosition = stats[0].getBoundingClientRect().top;
+
+        if (statsPosition < triggerPoint && !statsStarted) {
+            statsStarted = true;
+            animateStats();
+        }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+
+
+    const video = document.getElementById('myVideo');
+
+    // new photo slider---
+
+    window.addEventListener("load", () => {
+        const slider = document.getElementById('imageSlider');
+        let scrollAmount = 0;
+
+        function autoSlide() {
+            const slideWidth = slider.querySelector("img").clientWidth + 15; // ek image width + gap
+            scrollAmount += slideWidth;
+
+            if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+                scrollAmount = 0; // last image ke baad wapas start
+            }
+
+            slider.scrollTo({
+                left: scrollAmount,
+                behavior: "smooth"
+            });
+        }
+
+        setInterval(autoSlide, 2000); // 2 sec me ek ek slide hoga
+    });
+
+    // slider-2---
+
+    const slider2 = document.getElementById("imageSlider2");
+    let scrollAmount2 = 0;
+
+    function slideImages2() {
+        // ek image ka width nikalna (pehli image se)
+        let imgWidth2 = slider2.querySelector("img").clientWidth + 10;
+
+        scrollAmount2 += imgWidth2;
+
+        if (scrollAmount2 >= slider2.scrollWidth - slider2.clientWidth) {
+            scrollAmount2 = 0; // reset
+        }
+
+        slider2.style.transform = `translateX(-${scrollAmount2}px)`;
+    }
+
+    // har 2 sec me slide
+    setInterval(slideImages2, 2000);
+
+
+
+    // Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                video.currentTime = 0; // hamesha start se play ho
+                video.play();
+            } else {
+                video.pause(); // bahar jate hi stop ho jaye
+                video.currentTime = 0; // position reset ho jaye
+            }
+        });
+    }, { threshold: 0.5 }); // 50% visible hone par trigger hoga
+
+    observer.observe(video);
+
+</script>
+
+
+
+</html>
